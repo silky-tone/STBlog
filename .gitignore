@@ -1,0 +1,19 @@
+# Logs
+logs
+
+# build
+dist
+build
+node_modules
+package-lock.json
+
+# IDEs
+.idea
+.vscode
+.project
+.DS_Store
+.classpath
+
+# temp directory
+.temp
+.tmp
