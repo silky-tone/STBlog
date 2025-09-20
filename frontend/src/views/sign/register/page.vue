@@ -4,6 +4,8 @@
     <el-button @click="gotoLogin">goto Login</el-button>
   </div>
 </template>
+
+<script lang="ts">export default { name: 'Register' };</script>
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
 
