@@ -3,12 +3,53 @@
 }
 
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+img {
+  display: inline-block;
+  -ms-interpolation-mode: bicubic
+}
+
+h1, h2, h3, h4, h5, h6, span, p {
+  word-wrap: break-word;
+  white-space: pre-line;
+}
+
+em {
+  font-style: normal
+}
+
+li {
+  list-style: none
+}
+
+a {
+  text-decoration: none
+}
+
+a:hover {
+  text-decoration: underline
 }
 
 body {
