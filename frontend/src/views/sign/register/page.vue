@@ -1,11 +1,15 @@
-<script setup lang="ts">
-
-</script>
-
 <template>
-
+  <div class="">
+    <div>Register</div>
+    <el-button @click="gotoLogin">goto Login</el-button>
+  </div>
 </template>
+<script setup lang="ts">
+import { useRouter } from 'vue-router';
 
-<style scoped lang="scss">
+const router = useRouter();
 
-</style>
+function gotoLogin() {
+  router.push('/sign/login');
+}
+</script>

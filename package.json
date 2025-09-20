@@ -2,8 +2,7 @@
   "name": "template",
   "version": "1.0.0",
   "license": "Apache-2.0",
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Funny002/STBlog.git"
@@ -11,5 +10,11 @@
   "bugs": {
     "url": "https://github.com/Funny002/STBlog/issues"
   },
-  "homepage": "https://github.com/Funny002/STBlog#readme"
+  "homepage": "https://github.com/Funny002/STBlog#readme",
+  "dependencies": {
+    "nprogress": "^0.2.0"
+  },
+  "devDependencies": {
+    "@types/nprogress": "^0.2.3"
+  }
 }

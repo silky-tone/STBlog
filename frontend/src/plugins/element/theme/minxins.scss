@@ -1,0 +1,38 @@
+// CSS3 var
+@use 'element-plus/theme-chalk/src/mixins/var' as *;
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+
+@mixin theme-color($colors,$box-shadow,$bg-color,$text-color,$border-color,$fill-color,$mask-color,$button,$card,$empty) {
+  //hex colors
+  @each $type in (primary, success, warning, danger, error, info) {
+    @include set-css-color-type($colors, $type);
+  }
+
+  // --el-box-shadow-#{$type}
+  @include set-component-css-var('box-shadow', $box-shadow);
+
+  //  --el-bg-color-#{$type}
+  @include set-component-css-var('bg-color', $bg-color);
+
+  // --el-text-color-#{$type}
+  @include set-component-css-var('text-color', $text-color);
+
+  // --el-border-color-#{$type}
+  @include set-component-css-var('border-color', $border-color);
+
+  // Fill --el-fill-color-#{$type}
+  @include set-component-css-var('fill-color', $fill-color);
+  @include set-component-css-var('mask-color', $mask-color);
+
+  @include b(button) {
+    @include set-component-css-var('button', $button);
+  }
+
+  @include b(card) {
+    @include set-component-css-var('card', $card);
+  }
+
+  @include b(empty) {
+    @include set-component-css-var('empty', $empty);
+  }
+}

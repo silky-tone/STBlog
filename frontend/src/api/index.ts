@@ -1,3 +1,3 @@
-import { axios } from '../plugins';
+// import { axios } from '../plugins';
 
-export const test = () => axios.get('/api/test');
+// export const test = () => axios.get('/api/test');

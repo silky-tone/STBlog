@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import { useUser } from '../store';
+import NProgress from 'nprogress';
 import type { App } from 'vue';
 
 export const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: '/', component: () => import('../views/layout/default.vue') },
     {
       path: '/sign',
       redirect: '/sign/login',
@@ -15,11 +15,27 @@ export const router = createRouter({
         { path: 'register', name: 'register', meta: { title: '注册' }, component: () => import('../views/sign/register/page.vue') },
       ],
     },
+    { path: '/', beforeEnter: appBeforeEach, component: appHandlerLayout },
     { path: '/:chapters*', name: '404', meta: { title: '404' }, component: () => import('../views/error/404.vue') },
   ],
 });
 
-router.beforeEach(async (to, from, next) => {
+// TODO: 页面路由
+function appBeforeEach() {
+  console.log('appBeforeEach');
+}
+
+// TODO: 主题切换实现
+async function appHandlerLayout() {
+  console.log('handler Layout');
+  return await import('../views/layout/default.vue');
+}
+
+NProgress.configure({ showSpinner: false });
+
+router.beforeEach(async (to, _, next) => {
+  NProgress.start();
+
   // 判断 - 未登录
   if (!useUser().isLogin) {
     // 判断 - 非(登录/注册)页面
@@ -29,6 +45,10 @@ router.beforeEach(async (to, from, next) => {
   }
 
   next();
+});
+
+router.afterEach(() => {
+  setTimeout(() => NProgress.done(), 300);
 });
 
 // 登录，注册，用户管理，角色管理，权限管理，菜单管理，文件管理，日志管理，系统设置，邮件管理，文章管理，评论管理，友链管理，标签管理，分类管理，页面管理，仪表盘
