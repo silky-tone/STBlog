@@ -14,15 +14,12 @@ export class ArticleVersion extends BaseEntity<ArticleVersion> {
   /* 内容 */
   @Column({ type: 'text' }) content: string;
 
-  /* 是否草稿 */
-  @Column({ default: true }) is_draft: boolean;
-
   /* 标签 */
   @ManyToMany(() => Tags, (tags) => tags.articles) tags: Tags[];
 
-  /* 文章 */
-  @ManyToOne(() => Articles, (article) => article.versions) article: Articles;
-
   /* 分类 */
   @ManyToMany(() => Category, (category) => category.articles) categories: Category[];
+
+  /* 文章 */
+  @ManyToOne(() => Articles, (article) => article.versions) article: Articles;
 }

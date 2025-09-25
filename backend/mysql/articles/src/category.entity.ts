@@ -24,5 +24,5 @@ export class Category extends BaseEntity<Category> {
   @Column({ type: 'enum', enum: BaseState }) status: BaseState;
 
   /* 文章 */
-  @ManyToMany(() => ArticleVersion, (articleVersion) => articleVersion.categories) articles: ArticleVersion[];
+  @ManyToMany(() => ArticleVersion, (articleVersion) => articleVersion.categories) articles: ArticleVersion;
 }

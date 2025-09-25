@@ -1,6 +1,5 @@
 import { BaseEntity } from '../../common';
-import { Column, Entity, ManyToOne } from 'typeorm';
-import { Users } from '../../user';
+import { Column, Entity } from 'typeorm';
 
 export enum FileType {
   /* 头像 */
@@ -13,6 +12,9 @@ export enum FileType {
 
 @Entity()
 export class Files extends BaseEntity<Files> {
+  /* 用户 */
+  @Column({ type: 'int' }) uid: number;
+
   /* 分类 */
   @Column({ type: 'enum', enum: FileType, default: FileType.file }) type: FileType;
 
@@ -36,7 +38,4 @@ export class Files extends BaseEntity<Files> {
 
   /* 引用 */
   @Column({ length: 100 }) ref: string;
-
-  /* 用户 */
-  @ManyToOne(() => Users) uid: Users;
 }

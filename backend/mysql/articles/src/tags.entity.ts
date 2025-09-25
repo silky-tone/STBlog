@@ -17,5 +17,5 @@ export class Tags extends BaseEntity<Tags> {
   @Column({ type: 'enum', enum: BaseState }) status: BaseState;
 
   /* 文章 */
-  @ManyToMany(() => ArticleVersion, (articleVersion) => articleVersion.tags) articles: ArticleVersion[];
+  @ManyToMany(() => ArticleVersion, (articleVersion) => articleVersion.tags) articles: ArticleVersion;
 }
