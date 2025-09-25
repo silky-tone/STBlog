@@ -1,4 +1,5 @@
-import { Column, Entity, OneToOne } from 'typeorm';
+import { Column, Entity, OneToMany, OneToOne } from 'typeorm';
+import { Articles, Comments } from '../../articles';
 import { BaseEntity } from '../../common';
 import { Roles } from '../../sys';
 
@@ -40,4 +41,10 @@ export class Users extends BaseEntity<Users> {
 
   /* 角色 */
   @OneToOne(() => Roles, (roles) => roles.uid) role: Roles;
+
+  /* 文章 */
+  @OneToMany(() => Articles, (articles) => articles.uid) articles: Articles[];
+
+  /* 评论 */
+  @OneToMany(() => Comments, (comments) => comments.uid) comments: Comments[];
 }
